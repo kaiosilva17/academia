@@ -5,6 +5,15 @@ export default class Plano extends BaseModel {
   @column({ isPrimary: true })
   declare id: number
 
+  @column()
+  declare nome: string
+
+  @column()
+  declare descricao: string
+
+  @column()
+  declare valor: number
+
   @column.dateTime({ autoCreate: true })
   declare createdAt: DateTime
 

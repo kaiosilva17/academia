@@ -5,6 +5,12 @@ export default class Academia extends BaseModel {
   @column({ isPrimary: true })
   declare id: number
 
+  @column()
+  declare nome: string
+
+  @column()
+  declare endereco: string
+
   @column.dateTime({ autoCreate: true })
   declare createdAt: DateTime
 

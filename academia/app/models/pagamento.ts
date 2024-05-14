@@ -5,6 +5,15 @@ export default class Pagamento extends BaseModel {
   @column({ isPrimary: true })
   declare id: number
 
+  @column()
+  declare valor_pago: string
+
+  @column()
+  declare data_pagamento: number
+
+  @column()
+  declare cobrancaId: number
+
   @column.dateTime({ autoCreate: true })
   declare createdAt: DateTime
 

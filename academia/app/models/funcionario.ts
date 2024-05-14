@@ -5,6 +5,21 @@ export default class Funcionario extends BaseModel {
   @column({ isPrimary: true })
   declare id: number
 
+  @column()
+  declare nome: string
+
+  @column()
+  declare cargo: string
+
+  @column()
+  declare salario: number
+
+  @column()
+  declare data_contratacao: number
+
+  @column()
+  declare academiaId: number
+
   @column.dateTime({ autoCreate: true })
   declare createdAt: DateTime
 
