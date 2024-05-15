@@ -6,7 +6,7 @@ export default class Pagamento extends BaseModel {
   declare id: number
 
   @column()
-  declare valor_pago: string
+  declare valor_pago: Number
 
   @column()
   declare data_pagamento: number
