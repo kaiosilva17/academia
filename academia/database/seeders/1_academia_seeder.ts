@@ -1,3 +1,4 @@
+
 import Academia from '#models/academia'
 import { BaseSeeder } from '@adonisjs/lucid/seeders'
 
