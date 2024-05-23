@@ -1,5 +1,7 @@
 import { DateTime } from 'luxon'
-import { BaseModel, column } from '@adonisjs/lucid/orm'
+import { BaseModel, belongsTo, column } from '@adonisjs/lucid/orm'
+import Academia from './academia.js'
+import type { BelongsTo } from '@adonisjs/lucid/types/relations'
 
 export default class Equipamento extends BaseModel {
   @column({ isPrimary: true })
@@ -22,4 +24,7 @@ export default class Equipamento extends BaseModel {
 
   @column.dateTime({ autoCreate: true, autoUpdate: true })
   declare updatedAt: DateTime
+
+  @belongsTo(()=> Academia)
+  declare academia: BelongsTo<typeof Academia>
 }

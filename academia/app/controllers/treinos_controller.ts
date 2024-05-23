@@ -11,7 +11,7 @@ export default class TreinosController {
     }
 
     async show({ params }: HttpContext) {
-        return await Treino.findOrFail(params.id)
+        return await Treino.query().where('id',params.id).preload('cliente').first()
     }
 
     async store({ request }: HttpContext) {

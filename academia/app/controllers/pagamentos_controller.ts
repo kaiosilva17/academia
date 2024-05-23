@@ -11,7 +11,7 @@ export default class PagamentosController {
     }
 
     async show({ params }: HttpContext) {
-        return await Pagamento.findOrFail(params.id)
+        return await Pagamento.query().where('id',params.id).preload('cobranca').first()
     }
 
     async store({ request }: HttpContext) {

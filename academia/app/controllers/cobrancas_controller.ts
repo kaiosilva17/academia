@@ -11,7 +11,7 @@ export default class CobrancasController {
     }
 
     async show({ params }: HttpContext) {
-        return await Cobranca.findOrFail(params.id)
+        return await Cobranca.query().where('id',params.id).preload('cliente').first()
     }
 
     async store({ request }: HttpContext) {

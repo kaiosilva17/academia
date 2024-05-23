@@ -11,7 +11,7 @@ export default class EquipamentosController {
     }
 
     async show({ params }: HttpContext) {
-        return await Equipamento.findOrFail(params.id)
+        return await Equipamento.query().where('id',params.id).preload('academia').first()
     }
 
     async store({ request }: HttpContext) {
