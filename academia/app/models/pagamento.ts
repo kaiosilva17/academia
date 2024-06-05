@@ -8,10 +8,10 @@ export default class Pagamento extends BaseModel {
   declare id: number
 
   @column()
-  declare valor_pago: Number
+  declare valor_pago: number
 
   @column()
-  declare data_pagamento: number
+  declare data_pagamento: string
 
   @column()
   declare cobrancaId: number
