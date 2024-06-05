@@ -9,7 +9,7 @@ export default class Cobranca extends BaseModel {
   declare id: number
 
   @column()
-  declare valor: Number
+  declare valor: number
 
   @column()
   declare data_vencimento: string
