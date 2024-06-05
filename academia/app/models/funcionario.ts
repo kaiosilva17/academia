@@ -17,7 +17,7 @@ export default class Funcionario extends BaseModel {
   declare salario: number
 
   @column()
-  declare data_contratacao: number
+  declare data_contratacao: string
 
   @column()
   declare academiaId: number
