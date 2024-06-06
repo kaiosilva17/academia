@@ -11,9 +11,17 @@ export default class CobrancasController {
     }
 
     async show({ params }: HttpContext) {
-        return await Cobranca.query().where('id',params.id).preload('cliente').first()
-    }
+        const cobranca = await Cobranca.query()
+        .where('id', params.id)
+        .preload('cliente', (clienteQuery) => {
+          clienteQuery.preload('academia')
+          clienteQuery.preload('plano')
+        })
+        .firstOrFail()
 
+        return cobranca
+
+    }
     async store({ request }: HttpContext) {
         const dados = request.only(['id', 'valor', 'data_vencimento', 'status','clienteId'])
         return await Cobranca.create(dados)
