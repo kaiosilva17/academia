@@ -15,14 +15,14 @@ export default class ClientesController {
     }
 
     async store({ request }: HttpContext) {
-        const dados = request.only(['id', 'academiaId', 'nome', 'email', 'telefone', 'data_nascimento', 'endereco', 'plano_Id'])
+        const dados = request.only(['id', 'academiaId', 'nome', 'email', 'telefone', 'dataNascimento', 'endereco', 'planoId'])
         return await Cliente.create(dados)
     }
 
     async update({ params, request }: HttpContext) {
 
         const cliente = await Cliente.findOrFail(params.id)
-        const dados = request.only(['id', 'academiaId', 'nome', 'email', 'telefone', 'data_nascimento', 'endereco', 'plano_Id'])
+        const dados = request.only(['id', 'academiaId', 'nome', 'email', 'telefone', 'dataNascimento', 'endereco', 'planoId'])
 
         cliente.merge(dados)
         return await cliente.save()

@@ -1,5 +1,6 @@
  import type { HttpContext } from '@adonisjs/core/http'
 import Cobranca from '../models/cobranca.js'
+import Pagamento from '#models/pagamento'
 
 export default class CobrancasController {
 
@@ -14,7 +15,7 @@ export default class CobrancasController {
         const cobranca = await Cobranca.query()
         .where('id', params.id)
         .preload('cliente', (clienteQuery) => {
-          clienteQuery.preload('academia')
+           clienteQuery.preload('academia')
           clienteQuery.preload('plano')
         })
         .firstOrFail()
@@ -38,9 +39,8 @@ export default class CobrancasController {
     }
 
     async destroy({ params }: HttpContext) {
-        const cobranca = await Cobranca.findOrFail(params.id)
-
-        await cobranca.delete()
+       // const pagamento = await Pagamento.query().where('cobranca_id', params.id).delete();
+        const cobranca = await Cobranca.query().where('id', params.id).delete();
         return { msg: 'Registro deletado com sucesso', cobranca }
 
     }
